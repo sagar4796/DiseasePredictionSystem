@@ -51,7 +51,13 @@ export class DoctorLoginComponent implements OnInit {
         console.log(data);
         console.log(data.status);
         if (data.status === 1){
-          this.goToDoctorActions();
+          if (data.response.isVerified === false){
+            this.msg = 'sorry your account is not verified yet, please try after sometime';
+          }else if (data.response.isDeclined === true){
+            this.msg = 'Sorry your account registration request is declined';
+          }else{
+            this.goToDoctorActions();
+          }
         }else{
           this.msg = 'wrong credentials, please enter valid username and password';
         }

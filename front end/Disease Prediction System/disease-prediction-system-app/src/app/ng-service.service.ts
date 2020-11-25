@@ -12,6 +12,9 @@ export class NgServiceService {
 
   constructor(private http: HttpClient) { }
 
+
+  // Admin
+
   // Admin login (getAdmin(username, password))
   public loginAdmin(username: string, password: string): Observable<any>{
     // tslint:disable-next-line:quotemark
@@ -19,22 +22,15 @@ export class NgServiceService {
   }
 
 
+
+
+
+  // Doctor
+
   // Doctor Login (getDoctor(username, password))
   public loginDoctor(username: string, password: string): Observable<any>{
     // tslint:disable-next-line:quotemark
     return this.http.get<any>("http://localhost:8080/doctor/getDoctor/" + username + "/" + password);
-  }
-
-  // Patient Login
-  public loginPatient(username: string, password: string): Observable<any>{
-     // tslint:disable-next-line:quotemark
-    return this.http.get<any>("http://localhost:8080/patient/getPatient/" + username + "/" + password);
-  }
-
-  // Patient Registration
-  public patientRegister(patient: Patient): Observable<any>{
-         // tslint:disable-next-line:quotemark
-    return this.http.post<any>("http://localhost:8080/patient/savePatient", patient);
   }
 
   // doctor registration
@@ -53,8 +49,46 @@ export class NgServiceService {
     return this.http.get<any>("http://localhost:8080/location/getCityByState/" + steteId);
   }
 
-  // public getCityList(): Observable<any>{
-  //   // tslint:disable-next-line:quotemark
-  //   return this.http.get<any>("http://localhost:8080/patient/getPatient/");
-  // }
+  public getDoctorByCity(cityId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByCity/' + cityId);
+  }
+
+
+  // upload doctor certificate
+  public saveDoctorCertificate(doctorId: number, selectedImageData: FormData): Observable<any>{
+    // tslint:disable-next-line:quotemark
+    return this.http.post<any>("http://localhost:8080/doctor/saveDoctor/certificate/" + doctorId, selectedImageData);
+  }
+
+  // get List of doctor, who are not verified yet
+  public getDoctorByIsVerified(verified: boolean): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByIsVerified/' + verified);
+  }
+
+  public getDoctorByDeclined(declined: boolean): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByIsDeclined/' + declined);
+  }
+
+  public updateDoctor(doctor: Doctor): Observable<any>{
+    return this.http.put<any>('http://localhost:8080/doctor/updateDoctor', doctor);
+  }
+
+
+
+
+  // Patient
+
+  // Patient Login
+  public loginPatient(username: string, password: string): Observable<any>{
+    // tslint:disable-next-line:quotemark
+  return this.http.get<any>("http://localhost:8080/patient/getPatient/" + username + "/" + password);
+  }
+
+  // Patient Registration
+  public patientRegister(patient: Patient): Observable<any>{
+        // tslint:disable-next-line:quotemark
+  return this.http.post<any>("http://localhost:8080/patient/savePatient", patient);
+
+
+  }
 }

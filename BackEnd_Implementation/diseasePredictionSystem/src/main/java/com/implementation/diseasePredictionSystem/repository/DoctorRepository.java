@@ -11,4 +11,8 @@ import java.util.List;
     public Doctor findByUsernameAndPassword(String username, String password);
 
     public List<Doctor> findAllByCityId(int cityId);
+
+    public List<Doctor> findAllByVerifiedAndDeclined(boolean verified, boolean declined);
+
+    public List<Doctor> findAllByDeclined(boolean declined);
 }

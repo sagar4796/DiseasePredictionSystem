@@ -17,11 +17,11 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer doctorId;
-
-
     private String firstName;
     private String lastName;
     private String username;
+
+
 
     //    @Column(name = "password")
     private String password;
@@ -37,6 +37,11 @@ public class Doctor {
     private Integer departmentId;
 
     private Integer doctorStateId;
+
+    private Boolean declined;
+
+    private Boolean verified;
+
 
 
     public Integer getDoctorId() {
@@ -117,6 +122,22 @@ public class Doctor {
 
     public void setDoctorStateId(Integer doctorStateId) {
         this.doctorStateId = doctorStateId;
+    }
+
+    public Boolean getDeclined() {
+        return declined;
+    }
+
+    public void setDeclined(Boolean declined) {
+        this.declined = declined;
+    }
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
     }
 }
 

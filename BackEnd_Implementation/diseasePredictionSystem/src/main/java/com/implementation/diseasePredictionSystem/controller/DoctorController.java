@@ -6,6 +6,7 @@ import com.implementation.diseasePredictionSystem.service.DoctorService;
 import com.implementation.diseasePredictionSystem.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @CrossOrigin
 @RestController
@@ -29,5 +30,24 @@ public class DoctorController {
         return doctorService.getDoctorByCity(cityId);
     }
 
+    @PostMapping("doctor/saveDoctor/certificate/{doctorId}")
+    public Response saveDoctorCertificate(@PathVariable int doctorId,@RequestParam("imagefile") MultipartFile file){
+        return doctorService.saveDoctorCertificate(doctorId, file);
+    }
 
+    @GetMapping("doctor/getDoctor/getDoctorByIsVerified/{verified}")
+    public Response getDoctorByIsVerified(@PathVariable boolean verified){
+        boolean declined = false;
+        return doctorService.getDoctorByIsVerified(verified, declined);
+    }
+
+    @GetMapping("doctor/getDoctor/getDoctorByIsDeclined/{declined}")
+    public  Response getDoctorByDeclined(@PathVariable boolean declined){
+        return doctorService.getDoctorByDeclined(declined);
+    }
+
+    @PutMapping("doctor/updateDoctor")
+    public  Response updateDoctorIsVerifiedByDoctorId(@RequestBody Doctor doctor){
+        return doctorService.updateDoctorIsVerifiedByDoctorId(doctor);
+    }
 }

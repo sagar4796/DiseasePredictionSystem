@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-actions',
@@ -7,18 +8,28 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PatientActionsComponent implements OnInit {
 
-  @Output()    featureSelected = new EventEmitter<string>();
+  // @Output()    featureSelected = new EventEmitter<string>();
 
 
-  // tslint:disable-next-line:typedef
-  onSelect(feature: string){
-    this.featureSelected.emit(feature);
-  }
+  // // tslint:disable-next-line:typedef
+  // onSelect(feature: string){
+  //   this.featureSelected.emit(feature);
+  // }
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  // tslint:disable-next-line:typedef
+  goToPredictDisease(){
+    this.router.navigate(['/predictDisease']);
+  }
+
+  // tslint:disable-next-line:typedef
+  goToPatientRequestToDoctor(){
+    this.router.navigate(['/patientRequestToDoctor']);
   }
 
 }

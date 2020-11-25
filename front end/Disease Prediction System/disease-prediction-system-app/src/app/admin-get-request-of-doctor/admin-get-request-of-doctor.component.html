@@ -1,0 +1,112 @@
+<body onload = "adminGetDoctorRequest()">
+    <div class="container">
+        <h2> New Registered Doctor</h2>
+        <p> Requests of Doctor that needs to approve </p>
+        <small style="color: red;">{{msg}}</small>
+        <form #AdminGetDoctorRequest = "ngForm">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Certificate</th>
+                        <th scope="col">Approve</th>
+                        <th scope="col">Reject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let doctor of doctorList">
+                        <td>{{doctor.firstName}}</td>
+                        <td>{{doctor.lastName}}</td>
+                        <td>{{doctor.email}}</td>
+                        <td>{{doctor.contactNumber}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info">View</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click) = updateDoctorIsVerify(doctor.doctorId)>Approve</button>&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click) = updateDoctorIsDeclined(doctor.doctorId)>Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="container">
+        <h2> Verified Doctor</h2>
+        <p> List of all verified doctor </p>
+        <small style="color: red;">{{msg}}</small>
+        <form #AdminGetVerifiedDoctor = "ngForm">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Certificate</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let doctor of verifiedDoctorList">
+                        <td>{{doctor.firstName}}</td>
+                        <td>{{doctor.lastName}}</td>
+                        <td>{{doctor.email}}</td>
+                        <td>{{doctor.contactNumber}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info">View</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click) = updateDoctorIsDeclinedFromVerified(doctor.doctorId)>Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="container">
+        <h2> Rejected Doctor</h2>
+        <p> List of all rejected doctors </p>
+        <small style="color: red;">{{msg}}</small>
+        <form #AdminGetDoctorRequest = "ngForm">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Certificate</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let doctor of declinedDoctorList">
+                        <td>{{doctor.firstName}}</td>
+                        <td>{{doctor.lastName}}</td>
+                        <td>{{doctor.email}}</td>
+                        <td>{{doctor.contactNumber}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info">View</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click) = updateDoctorIsVerifiedFromDeclined(doctor.doctorId)>Approve</button>&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+</body>

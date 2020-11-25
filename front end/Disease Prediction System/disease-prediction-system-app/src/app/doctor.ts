@@ -9,6 +9,8 @@ export class Doctor {
     cityId: number;
     departmentId: number;
     doctorStateId: number;
+    verified: boolean;
+    declined: boolean;
     constructor(){}
 }
 
