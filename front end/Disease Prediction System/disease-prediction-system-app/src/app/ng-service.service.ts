@@ -73,6 +73,11 @@ export class NgServiceService {
     return this.http.put<any>('http://localhost:8080/doctor/updateDoctor', doctor);
   }
 
+  // get certificateByDoctorId
+  public getCertificateByDoctorId(doctorId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/doctor/getCertificate/getCertificateByDoctorId/' + doctorId);
+  }
+
 
 
 

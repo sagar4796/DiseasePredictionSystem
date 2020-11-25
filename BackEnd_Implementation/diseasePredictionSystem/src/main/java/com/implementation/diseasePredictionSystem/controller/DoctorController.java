@@ -47,7 +47,12 @@ public class DoctorController {
     }
 
     @PutMapping("doctor/updateDoctor")
-    public  Response updateDoctorIsVerifiedByDoctorId(@RequestBody Doctor doctor){
+    public Response updateDoctorIsVerifiedByDoctorId(@RequestBody Doctor doctor){
         return doctorService.updateDoctorIsVerifiedByDoctorId(doctor);
+    }
+
+    @GetMapping("doctor/getCertificate/getCertificateByDoctorId/{doctorId}")
+    public  Response getCertificateByDoctorId(@PathVariable int doctorId){
+        return  doctorService.getCertificateByDoctorId(doctorId);
     }
 }

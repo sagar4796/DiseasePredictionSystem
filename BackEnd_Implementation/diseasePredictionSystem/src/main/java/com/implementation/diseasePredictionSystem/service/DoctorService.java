@@ -118,6 +118,19 @@ public class DoctorService {
         return buildResponse(1, "SUCCESFULL", result);
     }
 
+    public Response getCertificateByDoctorId(int doctorId){
+        Certificate result;
+        try{
+            result = doctorImpl.getCertificateByDoctorId(doctorId);
+            if(result == null){
+                return buildResponse(0, "FAILED", result);
+            }
+        }catch (Exception e){
+            return buildResponse(0, "SERVER_EXCEPTION", e);
+        }
+        return buildResponse(1, "SUCCESFULL", result);
+    }
+
 
     private Response buildResponse(int status, String statusMsg, Object obj) {
         Response response = new Response();

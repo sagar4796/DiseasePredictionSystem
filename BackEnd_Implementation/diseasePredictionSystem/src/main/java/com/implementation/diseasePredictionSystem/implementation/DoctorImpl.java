@@ -45,4 +45,8 @@ public class DoctorImpl {
     public  List<Doctor> getDoctorByDeclined(boolean declined){
         return  doctorRepository.findAllByDeclined(declined);
     }
+
+    public Certificate getCertificateByDoctorId(int doctorId){
+        return certificateRepository.findByDoctorId(doctorId);
+    }
 }

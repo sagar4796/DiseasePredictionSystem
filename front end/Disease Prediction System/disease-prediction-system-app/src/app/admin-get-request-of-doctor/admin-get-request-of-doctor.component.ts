@@ -15,6 +15,8 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
   doctor = new Doctor();
   verifiedDoctorList: Doctor[];
   declinedDoctorList: Doctor[];
+  retrievedImage: any;
+  base64Data: any;
 
   constructor(private route: Router, private service: NgServiceService) { }
 
@@ -23,6 +25,25 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
     this.getVerifiedDoctorList();
     this.getDeclinedDoctorList();
   }
+
+
+  // tslint:disable-next-line:typedef
+  getCertificateImage(doctorId: number){
+    this.service.getCertificateByDoctorId(doctorId).subscribe(
+      data => {
+        this.base64Data = data.response.certificate;
+        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+      },
+      error => {
+        console.log('exception occured');
+        this.msg = 'There is some problem please refresh this page';
+      }
+    );
+  }
+
+
+
+
 
   // get all doctor request, where verified = false, declined = false;
   // tslint:disable-next-line:typedef
