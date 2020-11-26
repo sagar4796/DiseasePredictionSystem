@@ -23,6 +23,7 @@ import { DoctorWaitComponent } from './doctor-wait/doctor-wait.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AdminGetRequestOfDoctorComponent } from './admin-get-request-of-doctor/admin-get-request-of-doctor.component';
+import { AdminViewDoctorCertificateComponent } from './admin-view-doctor-certificate/admin-view-doctor-certificate.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AdminGetRequestOfDoctorComponent } from './admin-get-request-of-doctor/
     DoctorRequestsOfPatientsComponent,
     DoctorResponseToPatientComponent,
     DoctorWaitComponent,
-    AdminGetRequestOfDoctorComponent
+    AdminGetRequestOfDoctorComponent,
+    AdminViewDoctorCertificateComponent
   ],
   imports: [
     BrowserModule,

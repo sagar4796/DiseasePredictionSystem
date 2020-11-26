@@ -1,0 +1,60 @@
+<style>
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn, .signupbtn {
+      float: left;
+      width: 50%;
+    }
+    
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #f44336;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+     /* Change styles for cancel button and signup button on extra small screens */
+     @media screen and (max-width: 300px) {
+      .cancelbtn, .signupbtn {
+         width: 100%;
+      }
+    }
+</style>
+
+
+<body>
+    <div class="container">
+        <div class="container row">
+            <div class="col-md-12">
+                <h1> This is the certificate of the doctor.</h1>
+                <div *ngIf=retrievedImage>
+                    <img [src]="retrievedImage">
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <div class="clearfix">
+            <button type="button" class="cancelbtn" (click)="goToAdminGetRequestOfDoctor()">Cancel</button>
+        </div>
+    </div>
+</body>

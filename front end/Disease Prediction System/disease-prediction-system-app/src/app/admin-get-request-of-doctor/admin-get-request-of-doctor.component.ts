@@ -12,11 +12,12 @@ import {NgForm} from '@angular/forms';
 export class AdminGetRequestOfDoctorComponent implements OnInit {
   doctorList: Doctor[];
   msg = '';
+  msgNewRequest = '';
+  msgVerifiedRequest = '';
+  msgDeclinedRequest = '';
   doctor = new Doctor();
   verifiedDoctorList: Doctor[];
   declinedDoctorList: Doctor[];
-  retrievedImage: any;
-  base64Data: any;
 
   constructor(private route: Router, private service: NgServiceService) { }
 
@@ -26,19 +27,31 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
     this.getDeclinedDoctorList();
   }
 
+  // tslint:disable-next-line:typedef
+  openModal() {
+    document.getElementById('myModal').style.display = 'block';
+  }
+
 
   // tslint:disable-next-line:typedef
-  getCertificateImage(doctorId: number){
-    this.service.getCertificateByDoctorId(doctorId).subscribe(
-      data => {
-        this.base64Data = data.response.certificate;
-        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-      },
-      error => {
-        console.log('exception occured');
-        this.msg = 'There is some problem please refresh this page';
-      }
-    );
+  // getCertificateImage(doctorId: number){
+  //   this.service.getCertificateByDoctorId(doctorId).subscribe(
+  //     data => {
+  //       this.base64Data = data.response.certificate;
+  //       this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+  //     },
+  //     error => {
+  //       console.log('exception occured');
+  //       this.msg = 'There is some problem please refresh this page';
+  //     }
+  //   );
+  //   this.goToVIewCertificate(this.retrievedImage);
+  // }
+
+
+  // tslint:disable-next-line:typedef
+  goToVIewCertificate(doctorId: number){
+    this.route.navigate(['/ViewDoctorCertificate', doctorId]);
   }
 
 
@@ -57,7 +70,7 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
         if (data.status === 1){
           this.doctorList = data.response;
           if (this.doctorList.length === 0){
-            this.msg = 'There is no new request available at this time';
+            this.msgNewRequest = 'There is no new request available at this time';
           }
         }else{
           this.msg = 'There is some problem please refresh this page';
@@ -205,8 +218,8 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
         console.log(data.status);
         if (data.status === 1){
           this.verifiedDoctorList = data.response;
-          if (this.doctorList.length === 0){
-            this.msg = 'There is no new request available at this time';
+          if (this.verifiedDoctorList.length === 0){
+            this.msgVerifiedRequest = 'There is no doctor verified yet';
           }
         }else{
           this.msg = 'There is some problem please refresh this page';
@@ -232,8 +245,8 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
         console.log(data.status);
         if (data.status === 1){
           this.declinedDoctorList = data.response;
-          if (this.doctorList.length === 0){
-            this.msg = 'There is no declined request available';
+          if (this.declinedDoctorList.length === 0){
+            this.msgDeclinedRequest = 'There is no declined request available';
           }
         }else{
           this.msg = 'There is some problem please refresh this page';
