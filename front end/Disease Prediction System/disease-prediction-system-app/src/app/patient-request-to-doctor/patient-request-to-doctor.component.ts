@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { City } from '../city';
 import { Doctor } from '../doctor';
 import { NgServiceService } from '../ng-service.service';
@@ -19,20 +19,24 @@ export class PatientRequestToDoctorComponent implements OnInit {
   cityList: City[];
   doctorList: Doctor[];
   doctor = new Doctor();
-  constructor(private route: Router, private service: NgServiceService) { }
+  patientId: number;
+  constructor(private route: Router, private service: NgServiceService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // tslint:disable-next-line:radix
+    this.patientId = parseInt(this.activatedRoute.snapshot.paramMap.get('patientId'));
+    this.getStateList();
   }
 
 
   // tslint:disable-next-line:typedef
-  goToViewDoctorForRequest(){
-
+  goToViewDoctorForRequest(doctorId: number){
+    this.route.navigate(['/patientSendRequest', this.patientId, doctorId]);
   }
 
   // tslint:disable-next-line:typedef
   goToPatientActions(){
-    this.route.navigate(['/patientActions']);
+    this.route.navigate(['/patientActions', this.patientId]);
   }
 
    // tslint:disable-next-line:typedef

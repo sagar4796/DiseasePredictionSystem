@@ -2,8 +2,12 @@ package com.implementation.diseasePredictionSystem.implementation;
 
 import com.implementation.diseasePredictionSystem.dto.Certificate;
 import com.implementation.diseasePredictionSystem.dto.Doctor;
+import com.implementation.diseasePredictionSystem.dto.Request;
+import com.implementation.diseasePredictionSystem.dto.Response;
 import com.implementation.diseasePredictionSystem.repository.CertificateRepository;
 import com.implementation.diseasePredictionSystem.repository.DoctorRepository;
+import com.implementation.diseasePredictionSystem.repository.RequestRepository;
+import com.implementation.diseasePredictionSystem.repository.ResponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +21,12 @@ public class DoctorImpl {
 
     @Autowired
     CertificateRepository certificateRepository;
+
+    @Autowired
+    ResponseRepository responseRepository;
+
+    @Autowired
+    RequestRepository requestRepository;
 
     public Doctor saveDoctor(Doctor doctor){
         return doctorRepository.save(doctor);
@@ -48,5 +58,13 @@ public class DoctorImpl {
 
     public Certificate getCertificateByDoctorId(int doctorId){
         return certificateRepository.findByDoctorId(doctorId);
+    }
+
+    public Response saveResponse(Response response){
+        return responseRepository.save(response);
+    }
+
+    public Request getRequestByRequestId(int requestId){
+        return requestRepository.findByRequestId(requestId);
     }
 }

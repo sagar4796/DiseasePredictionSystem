@@ -7,5 +7,6 @@ export class Patient {
     password: string;
     contactNumber: number;
     email: string;
+    declined: boolean;
     constructor(){}
 }

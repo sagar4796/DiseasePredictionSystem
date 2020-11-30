@@ -33,6 +33,16 @@ public class Patient {
 //    @Column(name = "email")
     private String email;
 
+    public boolean getDeclined() {
+        return declined;
+    }
+
+    public void setDeclined(boolean declined) {
+        this.declined = declined;
+    }
+
+    private boolean declined;
+
 
     public Integer getPatientId() {
         return patientId;

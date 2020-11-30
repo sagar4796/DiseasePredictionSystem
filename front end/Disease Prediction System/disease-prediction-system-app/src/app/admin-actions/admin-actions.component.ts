@@ -18,4 +18,8 @@ export class AdminActionsComponent implements OnInit {
     this.route.navigate(['/adminGetRequestOfDoctor']);
   }
 
+  goToAdminHandlePatientAccount(){
+    this.route.navigate(['/patientAccounts']);
+  }
+
 }

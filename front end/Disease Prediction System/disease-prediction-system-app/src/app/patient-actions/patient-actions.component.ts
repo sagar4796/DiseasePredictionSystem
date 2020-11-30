@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-actions',
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./patient-actions.component.css']
 })
 export class PatientActionsComponent implements OnInit {
-
+  patientId: number;
   // @Output()    featureSelected = new EventEmitter<string>();
 
 
@@ -17,9 +17,11 @@ export class PatientActionsComponent implements OnInit {
   // }
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // tslint:disable-next-line:radix
+    this.patientId = parseInt(this.activatedRoute.snapshot.paramMap.get('patientId'));
   }
 
   // tslint:disable-next-line:typedef
@@ -29,7 +31,7 @@ export class PatientActionsComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   goToPatientRequestToDoctor(){
-    this.router.navigate(['/patientRequestToDoctor']);
+    this.router.navigate(['/patientRequestToDoctor', this.patientId]);
   }
 
 }

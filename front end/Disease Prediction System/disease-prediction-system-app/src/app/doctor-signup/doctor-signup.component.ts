@@ -33,6 +33,7 @@ export class DoctorSignupComponent implements OnInit {
   constructor(private route: Router, private service: NgServiceService) { }
 
   ngOnInit(): void {
+    this.getStateList();
   }
 
   // tslint:disable-next-line:typedef

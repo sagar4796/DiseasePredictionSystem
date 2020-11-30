@@ -9,4 +9,8 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     public Patient save(Patient patient);
 
     public Patient findByUsernameAndPassword(String username, String password);
+
+    public Patient findByPatientId(int patientId);
+
+    public List<Patient> findAllByDeclined(boolean declined);
 }

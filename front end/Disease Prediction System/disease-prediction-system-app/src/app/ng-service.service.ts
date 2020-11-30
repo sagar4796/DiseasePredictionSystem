@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import {Admin} from './admin';
 import { Patient } from './patient';
 import { Doctor } from './doctor';
+import {Request} from './request';
+import { Response } from './response';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +55,10 @@ export class NgServiceService {
     return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByCity/' + cityId);
   }
 
+  public getPatientRequest(doctorId: number, complete: boolean): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/patient/getPatientRequest/' + doctorId + '/' + complete);
+  }
+
 
   // upload doctor certificate
   public saveDoctorCertificate(doctorId: number, selectedImageData: FormData): Observable<any>{
@@ -78,6 +84,13 @@ export class NgServiceService {
     return this.http.get<any>('http://localhost:8080/doctor/getCertificate/getCertificateByDoctorId/' + doctorId);
   }
 
+  public saveResponse(response: Response): Observable<any>{
+    return this.http.post<any>('http://localhost:8080/doctor/saveResponse', response);
+  }
+
+  public getRequestByRequestId(requestId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/request/getRequest/getRequestbyRequestId/' + requestId);
+  }
 
 
 
@@ -93,7 +106,17 @@ export class NgServiceService {
   public patientRegister(patient: Patient): Observable<any>{
         // tslint:disable-next-line:quotemark
   return this.http.post<any>("http://localhost:8080/patient/savePatient", patient);
+  }
 
+  public savePatientRequest(request: Request): Observable<any>{
+    return this.http.post<any>('http://localhost:8080/patient/savePatientRequest', request);
+  }
 
+  public getPatientByPatientId(patientId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/patient/getPatient/getPatientByPatientId/' + patientId);
+  }
+
+  public getPatientByDeclined(declined: boolean): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/patient/getPatient/getPatientByDeclined/' + declined);
   }
 }

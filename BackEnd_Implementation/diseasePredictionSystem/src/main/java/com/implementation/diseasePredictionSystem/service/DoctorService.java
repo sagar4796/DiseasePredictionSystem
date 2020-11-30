@@ -2,6 +2,7 @@ package com.implementation.diseasePredictionSystem.service;
 
 import com.implementation.diseasePredictionSystem.dto.Certificate;
 import com.implementation.diseasePredictionSystem.dto.Doctor;
+import com.implementation.diseasePredictionSystem.dto.Request;
 import com.implementation.diseasePredictionSystem.implementation.DoctorImpl;
 import com.implementation.diseasePredictionSystem.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,6 +123,32 @@ public class DoctorService {
         Certificate result;
         try{
             result = doctorImpl.getCertificateByDoctorId(doctorId);
+            if(result == null){
+                return buildResponse(0, "FAILED", result);
+            }
+        }catch (Exception e){
+            return buildResponse(0, "SERVER_EXCEPTION", e);
+        }
+        return buildResponse(1, "SUCCESFULL", result);
+    }
+
+    public Response saveResponse(com.implementation.diseasePredictionSystem.dto.Response response){
+        com.implementation.diseasePredictionSystem.dto.Response result;
+        try {
+            result = doctorImpl.saveResponse(response);
+            if(result == null){
+                return buildResponse(0, "FAILED", result);
+            }
+        }catch (Exception e){
+            return buildResponse(0, "SERVER_EXCEPTION", e);
+        }
+        return buildResponse(1, "SUCCESFULL", result);
+    }
+
+    public Response getRequestByRequestId(int requestId){
+        Request result;
+        try{
+            result = doctorImpl.getRequestByRequestId(requestId);
             if(result == null){
                 return buildResponse(0, "FAILED", result);
             }

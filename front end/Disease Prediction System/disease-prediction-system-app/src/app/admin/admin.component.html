@@ -7,7 +7,7 @@
       padding: 12px 20px;
       margin: 8px 0;
       display: inline-block;
-      border: 1px solid #ccc;
+      border: 1px solid darkgray;
       box-sizing: border-box;
     }
     
@@ -49,6 +49,11 @@
       float: right;
       padding-top: 16px;
     }
+
+    hr {
+      border: 1px solid;
+      margin-bottom: 25px;
+    }
     
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
@@ -61,13 +66,7 @@
       }
     }
     </style>
-<div style="background-color: silver;">
-    <!-- <div class="container"> 
-        <h1>Admin Login</h1>
-        <p>Please insert your username and password for login into this system.</p>
-        <hr>
-    </div> -->
-        
+<div style="background-color: #E8E8E8;">
     <form #AdminLoginForm = "ngForm" (ngSubmit) = "loginAdmin()">
         <div class="container">
             <h1>Admin Login</h1>
@@ -75,14 +74,14 @@
         <hr>
             <small style="color: tomato;">{{msg}}</small><br>
             <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required [(ngModel)] = "admin.username"  #username = "ngModel" required
+            <input type="text" class = "form-control" placeholder="Enter Username" name="username" required [(ngModel)] = "admin.username"  #username = "ngModel" required
             [class.is-invalid] = "username.invalid && username.touched"
             >
             <small class = "text-danger" [class.d-none] = "username.valid || username.untouched">Username is required field</small><br>
     
         
             <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required [(ngModel)] = "admin.password"  #password = "ngModel" required
+            <input type="password" class = "form-control" placeholder="Enter Password" name="password" required [(ngModel)] = "admin.password"  #password = "ngModel" required
             [class.is-invalid] = "password.invalid && password.touched"
             >
             <small class = "text-danger" [class.d-none] = "password.valid || password.untouched">password is required field</small><br>

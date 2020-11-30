@@ -35,8 +35,9 @@ export class PAtientLoginComponent implements OnInit {
     }
 
     // tslint:disable-next-line:typedef
-    goToPatientActions(){
-      this.route.navigate(['/patientActions']);
+    goToPatientActions(patientId: number){
+      console.log('patientId --> ' + patientId);
+      this.route.navigate(['/patientActions', patientId]);
     }
 
     // tslint:disable-next-line:typedef
@@ -53,7 +54,11 @@ export class PAtientLoginComponent implements OnInit {
           console.log(data);
           console.log(data.status);
           if (data.status === 1){
-            this.goToPatientActions();
+            if (data.response.declined === true){
+              this.msg = 'sorry, your account is canceled.';
+            }else{
+              this.goToPatientActions(data.response.patientId);
+            }
           }else{
             this.msg = 'wrong credentials, please enter valid username and password';
           }

@@ -13,6 +13,7 @@ export class DoctorLoginComponent implements OnInit {
 
   doctor = new Doctor();
   msg = '';
+  doctorId: number;
 
   constructor(private route: Router, private service: NgServiceService) { }
 
@@ -33,8 +34,8 @@ export class DoctorLoginComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  goToDoctorActions(){
-    this.route.navigate(['/doctorActions']);
+  goToDoctorActions(doctorId: number){
+    this.route.navigate(['/doctorActions', doctorId]);
   }
 
   // tslint:disable-next-line:typedef
@@ -56,7 +57,8 @@ export class DoctorLoginComponent implements OnInit {
           }else if (data.response.verified === false){
             this.msg = 'sorry your account is not verified yet, please try after sometime';
           }else{
-            this.goToDoctorActions();
+            this.doctorId = data.response.doctorId;
+            this.goToDoctorActions(this.doctorId);
           }
         }else{
           this.msg = 'wrong credentials, please enter valid username and password';

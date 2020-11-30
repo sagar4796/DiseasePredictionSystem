@@ -55,4 +55,15 @@ public class DoctorController {
     public  Response getCertificateByDoctorId(@PathVariable int doctorId){
         return  doctorService.getCertificateByDoctorId(doctorId);
     }
+
+    @PostMapping("doctor/saveResponse")
+    public Response saveResponse(@RequestBody com.implementation.diseasePredictionSystem.dto.Response response){
+        return doctorService.saveResponse(response);
+    }
+
+    @GetMapping("request/getRequest/getRequestbyRequestId/{requestId}")
+    public Response getRequestByRequestId(@PathVariable int requestId){
+        return doctorService.getRequestByRequestId(requestId);
+    }
+
 }

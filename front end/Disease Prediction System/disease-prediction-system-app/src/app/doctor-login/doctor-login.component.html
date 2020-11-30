@@ -49,6 +49,11 @@
       float: right;
       padding-top: 16px;
     }
+
+    hr {
+      border: 1px solid;
+      margin-bottom: 25px;
+    }
     
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
@@ -62,14 +67,12 @@
     }
     </style>
 
-    <div class="container">
-        <h1>Doctor Login</h1>
-        <p>Please insert your username and password for login into this system.</p>
-        <hr>
-    </div>
-    
-    <form #DoctorLoginForm = "ngForm" (ngSubmit) = "loginDoctor()">
+    <div style="background-color: #E8E8E8;">
+      <form #DoctorLoginForm = "ngForm" (ngSubmit) = "loginDoctor()">
         <div class="container">
+            <h1>Doctor Login</h1>
+            <p>Please insert your username and password for login into this system.</p>
+            <hr>
             <small style="color: tomato;">{{msg}}</small><br>
             
             
@@ -89,14 +92,22 @@
                 
             <button class ="btn btm-info" [disabled]="DoctorLoginForm.form.invalid" type="submit">Login</button>
             <button type="button" (click)="goToDoctorSignup()">SignUp</button>
-          </div>
-        
-          <div class="container" style="background-color:#f1f1f1">
             <button type="button" class="cancelbtn"  (click)="goToWelcome()">Cancel</button>
           </div>
-    </form>
+          <pre>
 
 
-<p>doctor-login works!</p>
 
+
+
+
+
+
+
+
+
+        
+          </pre>
+      </form> 
+    </div>
 

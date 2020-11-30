@@ -54,10 +54,6 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
     this.route.navigate(['/ViewDoctorCertificate', doctorId]);
   }
 
-
-
-
-
   // get all doctor request, where verified = false, declined = false;
   // tslint:disable-next-line:typedef
   adminGetDoctorRequest(){
@@ -87,15 +83,15 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
 
   // set verify = true for doctor from all request part
   // tslint:disable-next-line:typedef
-  updateDoctorIsVerify(doctorId: number){
-    let i = 0;
-    for (i = 0; i < this.doctorList.length; i++){
-      if (doctorId === this.doctorList[i].doctorId){
-        this.doctor = this.doctorList[i];
-      }
-    }
-    this.doctor.verified = true;
-    this.service.updateDoctor(this.doctor).subscribe(
+  updateDoctorIsVerify(doctor: Doctor){
+    // let i = 0;
+    // for (i = 0; i < this.doctorList.length; i++){
+    //   if (doctorId === this.doctorList[i].doctorId){
+    //     this.doctor = this.doctorList[i];
+    //   }
+    // }
+    doctor.verified = true;
+    this.service.updateDoctor(doctor).subscribe(
       data => {
         console.log('response receiver');
         console.log(data);
@@ -116,16 +112,16 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
 
   // set declined = false for doctor from declined part
   // tslint:disable-next-line:typedef
-  updateDoctorIsVerifiedFromDeclined(doctorId: number){
-    let i = 0;
-    for (i = 0; i < this.declinedDoctorList.length; i++){
-      if (doctorId === this.declinedDoctorList[i].doctorId){
-        this.doctor = this.declinedDoctorList[i];
-      }
-    }
-    this.doctor.verified = true;
-    this.doctor.declined = false;
-    this.service.updateDoctor(this.doctor).subscribe(
+  updateDoctorIsVerifiedFromDeclined(doctor: Doctor){
+    // let i = 0;
+    // for (i = 0; i < this.declinedDoctorList.length; i++){
+    //   if (doctorId === this.declinedDoctorList[i].doctorId){
+    //     this.doctor = this.declinedDoctorList[i];
+    //   }
+    // }
+    doctor.verified = true;
+    doctor.declined = false;
+    this.service.updateDoctor(doctor).subscribe(
       data => {
         console.log('response receiver');
         console.log(data);
@@ -146,16 +142,16 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
 
 
   // tslint:disable-next-line:typedef
-  updateDoctorIsDeclinedFromVerified(doctorId: number){
-    let i = 0;
-    for (i = 0; i < this.verifiedDoctorList.length; i++){
-      if (doctorId === this.verifiedDoctorList[i].doctorId){
-        this.doctor = this.verifiedDoctorList[i];
-      }
-    }
-    this.doctor.verified = false;
-    this.doctor.declined = true;
-    this.service.updateDoctor(this.doctor).subscribe(
+  updateDoctorIsDeclinedFromVerified(doctor: Doctor){
+    // let i = 0;
+    // for (i = 0; i < this.verifiedDoctorList.length; i++){
+    //   if (doctorId === this.verifiedDoctorList[i].doctorId){
+    //     this.doctor = this.verifiedDoctorList[i];
+    //   }
+    // }
+    doctor.verified = false;
+    doctor.declined = true;
+    this.service.updateDoctor(doctor).subscribe(
       data => {
         console.log('response receiver');
         console.log(data);
@@ -177,15 +173,15 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
 
   // set declined = true for doctor from all request part
   // tslint:disable-next-line:typedef
-  updateDoctorIsDeclined(doctorId: number){
-    let i = 0;
-    for (i = 0; i < this.doctorList.length; i++){
-      if (doctorId === this.doctorList[i].doctorId){
-        this.doctor = this.doctorList[i];
-      }
-    }
-    this.doctor.declined = true;
-    this.service.updateDoctor(this.doctor).subscribe(
+  updateDoctorIsDeclined(doctor: Doctor){
+    // let i = 0;
+    // for (i = 0; i < this.doctorList.length; i++){
+    //   if (doctorId === this.doctorList[i].doctorId){
+    //     this.doctor = this.doctorList[i];
+    //   }
+    // }
+    doctor.declined = true;
+    this.service.updateDoctor(doctor).subscribe(
       data => {
         console.log('response receiver');
         console.log(data);

@@ -17,10 +17,6 @@
       outline: none;
     }
     
-    hr {
-      border: 1px solid #f1f1f1;
-      margin-bottom: 25px;
-    }
     
     /* Set a style for all buttons */
     button {
@@ -61,6 +57,11 @@
       clear: both;
       display: table;
     }
+
+    hr {
+      border: 1px solid black;
+      margin-bottom: 25px;
+    }
     
     /* Change styles for cancel button and signup button on extra small screens */
     @media screen and (max-width: 300px) {
@@ -70,15 +71,16 @@
     }
     </style>
 
-<div class="container">
+<div style="background-color: whitesmoke;">
+  <div class="container">
     <h1>Request To Doctor</h1>
     <p>Please Select State and City to request Doctor.</p>
     <hr>
 
-    <form #PatientRequestToDoctor = "ngForm" (ngSubmit) = "goToViewDoctorForRequest()">
+    <form #PatientRequestToDoctor = "ngForm">
 
         <label for="abc"><b>State : &nbsp;</b></label>
-        <input list="list" placeholder="Please Select " name="list" autocomplete="off" (click) = "getStateList()" [(ngModel)] = "state.stateName">
+        <input list="list" placeholder="Please Select " name="list" autocomplete="off" [(ngModel)] = "state.stateName">
         <datalist id = "list">
             <option *ngFor = "let state of stateList" value = '{{state.stateName}}'></option>
         </datalist>
@@ -88,14 +90,13 @@
         <input list="list_2" placeholder="Please Select " name="list_2" autocomplete="off" (click) = "getCityListByStateId()" [(ngModel)] = "city.cityName">
         <datalist id = "list_2">
             <option *ngFor = "let city of cityList" value = '{{city.cityName}}'></option>
-            <option value="jhcvhbf"></option>
         </datalist>
         <br>
 
         <button type="button" class="signupbtn" (click) = "getDoctorByCity()" #button >Get Doctors</button>
     </form>
     <br><br><br>
-    <table class="table table-bordered">
+    <table class="table table-bordered" *ngIf = doctorList>
         <thead>
             <tr>
                 <th scope="col">FirstName</th>
@@ -112,12 +113,33 @@
                 <td>{{doctor.email}}</td>
                 <td>{{doctor.contactNumber}}</td>
                 <td>
-                    <button type="button" class="btn btn-primary">select</button>
+                    <button type="button" class="btn btn-primary" (click) = goToViewDoctorForRequest(doctor.doctorId)>select</button>
                 </td>
             </tr>
         </tbody>
     </table>
     <button type="button" class="cancelbtn" (click) = "goToPatientActions()">Cancel</button>
+    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </pre>
+  </div>
 </div>
 
-<p>patient-request-to-doctor works!</p>

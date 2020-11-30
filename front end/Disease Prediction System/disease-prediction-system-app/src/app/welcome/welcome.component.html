@@ -1,5 +1,5 @@
 
-  <style>
+  <!-- <style>
 a{
     float: right;
     display: block;
@@ -24,25 +24,67 @@ li{
     background-color: #dddddd;
     font-size: xx-large;
 }
-  </style>  
+  </style>   -->
 
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 1000px;
+      background-color: #E8E8E8;
+      text-align: center;
+      font-size: x-large;
+    }
     
-    <div>
-        <h1 style="text-align: center; background-color: blue;">Disease Prediction System</h1>
-    </div>
-    <!-- <div style="text-align: right;background-color: green;">
-        <a href="#" (click) = "onSelect('mainPage')">Home</a>
-    </div> -->
+    li a {
+      display: block;
+      color: black;
+      padding: 18px 26px;
+      text-decoration: none;
+    }
+    
+    li a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
 
 
-    <nav>
-        <div>
-            <ul>
-                <li><a (click)="goToAdminLogin()"> Admin </a></li>
-                <li><a (click)="goToPatientLogin()"> Patient </a></li>
-                <li><a (click)="goToDoctorLogin()"> Doctor </a></li>
-            </ul>
-        </div>
-    </nav>  
+    /* div.center_div {
+    height: 10em;
+    position: relative;
+} */
+
+
+    div.center_div{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+    </style>
+
+<div style="background-color: #E8E8E8;">  
+        <h1 style="text-align: center;">Disease Prediction System</h1>
+        <hr>
+        <nav>
+            <div class = "center_div">
+                <ul>
+                    <li><a (click)="goToAdminLogin()"> <b>Admin</b></a></li><br>
+                    <li><a (click)="goToPatientLogin()"> <b>Patient</b></a></li><br>
+                    <li><a (click)="goToDoctorLogin()"> <b>Doctor</b> </a></li>
+                </ul>
+            </div>
+        </nav>     
+</div>  
+    
+    
 
     

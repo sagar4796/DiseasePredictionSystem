@@ -37,6 +37,7 @@ export class PatientSignupComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   patientRegister(){
+    this.patient.declined = false;
     this.service.patientRegister(this.patient).subscribe(
       data => {
         // tslint:disable-next-line:quotemark

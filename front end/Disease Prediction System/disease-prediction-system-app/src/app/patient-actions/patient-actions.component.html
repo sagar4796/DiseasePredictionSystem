@@ -3,27 +3,56 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      width: 1000px;
+      background-color: #E8E8E8;
+      text-align: center;
+      font-size: x-large;
     }
     
-    li{
-        display: block;
-        padding: 8px;
-        background-color: #dddddd;
-        font-size: xx-large;
+    li a {
+      display: block;
+      color: black;
+      padding: 18px 26px;
+      text-decoration: none;
     }
     
+    li a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+
+
+    /* div.center_div {
+    height: 10em;
+    position: relative;
+} */
+
+
+    div.center_div{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
     </style>
     
-    
-    <nav>
-        <div>
-            <ul>
-                <li><a (click) = "goToPatientRequestToDoctor()"> Request to Doctor</a></li>
-                <li><a (click) = "goToPredictDisease()"> Predict Disease </a></li>
-            </ul>
-        </div>
-    </nav>
-    
 
-<p>patient-actions works!</p>
+    <div style="background-color: #E8E8E8;">
+        <h1 style="text-align: center;"><b>Patient</b></h1>
+        <hr>
+        <nav>
+            <div class = "center_div">
+                <ul>
+                    <li><a (click) = "goToPatientRequestToDoctor()"> Request to Doctor</a></li>
+                    <li><a (click) = "goToPredictDisease()"> Predict Disease </a></li>
+                </ul>
+            </div>
+        </nav>  
+    </div>

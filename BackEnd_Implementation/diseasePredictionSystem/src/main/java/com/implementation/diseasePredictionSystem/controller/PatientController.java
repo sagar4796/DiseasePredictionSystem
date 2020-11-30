@@ -1,6 +1,7 @@
 package com.implementation.diseasePredictionSystem.controller;
 
 import com.implementation.diseasePredictionSystem.dto.Patient;
+import com.implementation.diseasePredictionSystem.dto.Request;
 import com.implementation.diseasePredictionSystem.service.PatientService;
 import com.implementation.diseasePredictionSystem.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,25 @@ public class PatientController {
     @GetMapping("patient/getPatient/{username}/{password}")
     public Response getPatient(@PathVariable String username, @PathVariable String password){
         return patientService.getPatient(username, password);
+    }
+
+    @PostMapping("patient/savePatientRequest")
+    public Response savePatientRequest(@RequestBody Request request){
+        return patientService.savePatientRequest(request);
+    }
+
+    @GetMapping("patient/getPatientRequest/{doctorId}/{complete}")
+    public Response getPatientRequestByDoctorId(@PathVariable int doctorId, @PathVariable boolean complete){
+        return patientService.getPatientRequestByDoctorId(doctorId, complete);
+    }
+
+    @GetMapping("patient/getPatient/getPatientByPatientId/{patientId}")
+    public Response getPatientByPatientId(@PathVariable int patientId){
+        return patientService.getPatientByPatientId(patientId);
+    }
+
+    @GetMapping("patient/getPatient/getPatientByDeclined/{declined}")
+    public Response getPatientListByDeclined(@PathVariable boolean declined){
+        return patientService.getPatientListByDeclined(declined);
     }
 }
