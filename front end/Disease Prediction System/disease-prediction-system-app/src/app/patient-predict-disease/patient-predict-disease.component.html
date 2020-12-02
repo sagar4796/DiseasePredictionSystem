@@ -38,6 +38,17 @@
       opacity:1;
     }
     
+    button.home{
+      background-color: darkgray;
+      width: 10%;
+      /* line-height: 12px; */
+      margin-top: 1px;
+      margin-right: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
     /* Extra styles for the cancel button */
     
     /* Add padding to container elements */
@@ -129,6 +140,7 @@ hr {
 
 <div style="background-color: #E8E8E8;">
   <div class="container">
+    <button class="home" (click) = goToWelcome()>Home</button>
     <h1>Predict Disease</h1>
     <p>Please fill at least two symptoms to predict the disease.</p>
     <hr>
@@ -188,7 +200,7 @@ hr {
 
 
     <button type="submit" >Submit</button>
-    <button type = "button" style="background-color: orange;"><a href="http://localhost:8888/notebooks/PredictDiseaseFromSymptoms.ipynb" target="_blank">page link</a></button>
+    <button type = "button" style="background-color: orange;"><a href="http://localhost:8888/notebooks/DiseasePredictionSystem.ipynb" target="_blank">page link</a></button>
     <button type="button" class="cancelbtn" (click)="goToPatientAction()">Cancel</button>
     <pre>
     </pre>

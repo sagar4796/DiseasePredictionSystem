@@ -23,6 +23,35 @@
   width: 25%;
 }
 
+button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+button.cancel{
+  background-color: red;
+}
+    
+    button:hover {
+      opacity: 0.8;
+    }
+
+    button.home{
+      background-color: darkgray;
+      width: 10%;
+      /* line-height: 50px; */
+      margin-top: 2px;
+      margin-right: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
 /* The Modal (background) */
 .modal {
   display: none;
@@ -152,6 +181,8 @@ img.hover-shadow {
 
 <body>
   <div style="background-color: whitesmoke">
+    <button class="home" (click) = goToWelcome()>Home</button>
+    <br><br>
     <div class="container">
       <h2> New Registered Doctor</h2>
       <p> Requests of Doctor that needs to approve </p>
@@ -261,5 +292,6 @@ img.hover-shadow {
           </table>
       </form>
   </div>
+  <button type="button" class="cancel" (click)="goToAdminActions()">Cancel</button>
   </div>
 </body>

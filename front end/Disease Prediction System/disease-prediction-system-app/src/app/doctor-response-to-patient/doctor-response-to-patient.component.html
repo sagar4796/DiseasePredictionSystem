@@ -18,57 +18,78 @@
       box-sizing: border-box;
     }
 
+    hr {
+      border: 1px solid;
+      margin-bottom: 25px;
+    }
+
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #f44336;
+    }
+
     body {font-family: Arial, Helvetica, sans-serif;}
     form {border: 3px solid #f1f1f1;}
 
     .container {
       padding: 16px;
     }
+
+    @media screen and (max-width: 300px) {
+      .cancelbtn, .signupbtn {
+         width: 100%;
+      }
+    }
 </style>
 
-<div class="container">
-    <h1>Response to Patient</h1>
-    <p>Give response to the request of selected patient.</p>
-    <hr>
 
+<div>
     <div class="container">
-        <h2> Patient's Detail</h2>
-        <p> this table shows information of patient and their request. </p>
-        <small style="color: red;">{{msg}}</small>
-        <form #PatientInformationAndRequest = "ngForm">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">FirstName</th>
-                        <th scope="col">LastName</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Contact Number</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Request</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{patient.firstName}}</td>
-                        <td>{{patient.lastName}}</td>
-                        <td>{{patient.email}}</td>
-                        <td>{{patient.contactNumber}}</td>
-                        <td>{{patient.age}}</td>
-                        <td>{{request}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <h1>Response to Patient</h1>
+        <p>Give response to the request of selected patient.</p>
+        <hr>
+    
+        <div class="container">
+            <h2> Patient's Detail</h2>
+            <p> this table shows information of patient and their request. </p>
+            <small style="color: red;">{{msg}}</small>
+            <form #PatientInformationAndRequest = "ngForm">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">FirstName</th>
+                            <th scope="col">LastName</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Contact Number</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Request</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{patient.firstName}}</td>
+                            <td>{{patient.lastName}}</td>
+                            <td>{{patient.email}}</td>
+                            <td>{{patient.contactNumber}}</td>
+                            <td>{{patient.age}}</td>
+                            <td>{{request}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    
+        <form #DoctorSendResponse = "ngForm" (ngSubmit) = "submitResponse()">
+            <div class= "container">
+                <label><b>Response : &nbsp;</b></label>
+                <input type="text" name = "response" placeholder="Please write down your response hear"  [(ngModel)] = "res.response" required>
+                <br>
+                <button class ="btn btm-info" type="submit">submit</button>   
+            </div>
         </form>
     </div>
-
-    <form #DoctorSendResponse = "ngForm" (ngSubmit) = "submitResponse()">
-        <div class= "container">
-            <label><b>Response : &nbsp;</b></label>
-            <input type="text" name = "response" placeholder="Please write down your response hear"  [(ngModel)] = "res.response" required>
-            <br>
-            <button class ="btn btm-info" type="submit">submit</button>   
-        </div>
-    </form>
 </div>
+
+
 
 

@@ -31,6 +31,7 @@ export class PatientSendRequestComponent implements OnInit {
     this.req.patientId = this.patientId;
     this.req.doctorId = this.doctorId;
     this.req.complete = false;
+    console.log("patientID -->" + this.patientId);
     console.log('requestMessage -->' + this.req.request);
     this.service.savePatientRequest(this.req).subscribe(
       data => {

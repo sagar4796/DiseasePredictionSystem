@@ -27,6 +27,33 @@
     }
 
 
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    button:hover {
+      opacity: 0.8;
+    }
+
+
+    button.home{
+      background-color: darkgray;
+      width: 10%;
+      /* line-height: 12px; */
+      margin-top: 1px;
+      margin-right: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+
     /* div.center_div {
     height: 10em;
     position: relative;
@@ -45,6 +72,7 @@
     
 
     <div style="background-color: #E8E8E8;">
+      <button class="home" (click) = goToWelcome()>Home</button>
         <h1 style="text-align: center;"><b>Patient</b></h1>
         <hr>
         <nav>

@@ -90,6 +90,10 @@ export class DoctorRequestsOfPatientsComponent implements OnInit {
     this.route.navigate(['/doctorActions', this.doctorId]);
   }
 
+  goToWelcome(){
+		this.route.navigate(['/home']);
+	}
+
   // tslint:disable-next-line:typedef
   getPatientFirstName(req: Request): string{
     let patientFirstName: string;

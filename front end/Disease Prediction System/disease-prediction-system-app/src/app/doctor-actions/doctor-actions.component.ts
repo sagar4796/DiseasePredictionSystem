@@ -23,5 +23,8 @@ export class DoctorActionsComponent implements OnInit {
     this.route.navigate(['/doctorGetRequestOfPatient', this.doctorId]);
   }
 
+  goToWelcome(){
+		this.route.navigate(['/home']);
+	}
 
 }

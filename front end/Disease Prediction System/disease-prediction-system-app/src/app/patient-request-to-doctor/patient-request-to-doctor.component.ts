@@ -39,6 +39,10 @@ export class PatientRequestToDoctorComponent implements OnInit {
     this.route.navigate(['/patientActions', this.patientId]);
   }
 
+  goToWelcome(){
+		this.route.navigate(['/home']);
+	}
+
    // tslint:disable-next-line:typedef
    getStateList(){
     this.service.getStateList().subscribe(

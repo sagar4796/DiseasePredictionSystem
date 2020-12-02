@@ -23,6 +23,14 @@ export class AdminHandlePatientAccountComponent implements OnInit {
     this.getNotDeclinedPatientList();
   }
 
+  goToAdminActions(){
+    this.route.navigate(['/adminActions']);
+  }
+
+  goToWelcome(){
+    this.route.navigate(['/home']);
+  }
+
   // tslint:disable-next-line:typedef
   getNotDeclinedPatientList(){
     this.service.getPatientByDeclined(false).subscribe(

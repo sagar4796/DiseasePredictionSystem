@@ -26,6 +26,31 @@
       color: white;
     }
 
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    button:hover {
+      opacity: 0.8;
+    }
+
+    button.home{
+      background-color: darkgray;
+      width: 10%;
+      /* line-height: 50px; */
+      margin-top: 2px;
+      margin-right: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
 
     /* div.center_div {
     height: 10em;
@@ -42,9 +67,10 @@
     transform: translate(-50%, -50%) 
 }
     </style>
-    
 <div style="background-color: #E8E8E8;">
+  
     <h1 style="text-align: center;"><b>Admin</b></h1>
+    <button class="home" (click) = goToWelcome()>Home</button>
     <hr>
     <nav>
         <div class = "center_div">

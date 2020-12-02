@@ -25,4 +25,8 @@ export class PatientPredictDiseaseComponent implements OnInit {
     this.route.navigate(['/patientActions', this.patientId]);
   }
 
+  goToWelcome(){
+		this.route.navigate(['/home']);
+	}
+
 }

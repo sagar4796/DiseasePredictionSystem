@@ -32,6 +32,11 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
     document.getElementById('myModal').style.display = 'block';
   }
 
+  goToWelcome(){
+    this.route.navigate(['/home']);
+  }
+
+
 
   // tslint:disable-next-line:typedef
   // getCertificateImage(doctorId: number){
@@ -52,6 +57,10 @@ export class AdminGetRequestOfDoctorComponent implements OnInit {
   // tslint:disable-next-line:typedef
   goToVIewCertificate(doctorId: number){
     this.route.navigate(['/ViewDoctorCertificate', doctorId]);
+  }
+
+  goToAdminActions(){
+    this.route.navigate(['/adminActions']);
   }
 
   // get all doctor request, where verified = false, declined = false;

@@ -24,6 +24,18 @@
     button:hover {
       opacity: 0.8;
     }
+
+
+    button.home{
+      background-color: darkgray;
+      width: 10%;
+      /* line-height: 12px; */
+      margin-top: 1px;
+      margin-right: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
     
     .cancelbtn {
       width: auto;
@@ -71,6 +83,7 @@
     <div style="background-color:#E8E8E8	;">
       <form #PatientLoginForm = "ngForm" (ngSubmit) = "loginPatient()">
         <div class="container">
+          <button class="home" (click) = goToWelcome()>Home</button>
             <h1>Patient Login</h1>
             <p>Please insert your username and password for login into this system.</p>
             <hr>

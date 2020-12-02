@@ -22,4 +22,8 @@ export class AdminActionsComponent implements OnInit {
     this.route.navigate(['/patientAccounts']);
   }
 
+  goToWelcome(){
+    this.route.navigate(['/home']);
+  }
+
 }
