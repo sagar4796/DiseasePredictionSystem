@@ -1,0 +1,161 @@
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box}
+    
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+    
+    input[type=text]:focus, input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    
+    
+    /* Set a style for all buttons */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+    
+    button:hover {
+      opacity:1;
+    }
+
+    button.home{
+      background-color: darkgray;
+      width: 10%;
+      /* line-height: 12px; */
+      margin-top: 1px;
+      margin-right: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #f44336;
+    }
+    
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+    
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    hr {
+      border: 1px solid black;
+      margin-bottom: 25px;
+    }
+    
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+      .cancelbtn, .signupbtn {
+         width: 100%;
+      }
+    }
+</style>
+
+
+<div style="background-color: whitesmoke;">
+    <button class="home" (click) = goToWelcome()>Home</button>
+
+    <div class="container">
+            <h2> Doctor's Detail</h2>
+            <p> The table below shows information of doctor to whom you requested </p>
+            <hr>
+            <small style="color: red;">{{msg}}</small>
+            <form #DoctorInformation = "ngForm">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">FirstName</th>
+                            <th scope="col">LastName</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Contact Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{doctor.firstName}}</td>
+                            <td>{{doctor.lastName}}</td>
+                            <td>{{doctor.email}}</td>
+                            <td>{{doctor.contactNumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <br>
+        <br>
+
+
+
+
+    <div class="container">
+        <h2> Response from Doctor</h2>
+        <p> list of response came from doctor for the request</p>
+        <hr>
+        <small style="color: red;">{{responseListMsg}}</small>
+        <form #PatientGetResponseForRequest = "ngForm">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Rssponse</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let res of responseList">
+                        <td>{{res.response}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info" (click) = goToPatientRequestFromResponse()>Select</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <button class="cancelbtn" (click) = goToPatientGetAllRequests()>close</button>
+    </div>
+    
+    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </pre>
+</div>

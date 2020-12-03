@@ -26,6 +26,12 @@ import { AdminGetRequestOfDoctorComponent } from './admin-get-request-of-doctor/
 import { AdminViewDoctorCertificateComponent } from './admin-view-doctor-certificate/admin-view-doctor-certificate.component';
 import { PatientSendRequestComponent } from './patient-send-request/patient-send-request.component';
 import { AdminHandlePatientAccountComponent } from './admin-handle-patient-account/admin-handle-patient-account.component';
+import { PatientGetDoctorResponseComponent } from './patient-get-doctor-response/patient-get-doctor-response.component';
+import { PatientGetResponseForRequestComponent } from './patient-get-response-for-request/patient-get-response-for-request.component';
+import { PatientRequestFromResponseComponent } from './patient-request-from-response/patient-request-from-response.component';
+import { DiseaseAndSymptomComponent } from './disease-and-symptom/disease-and-symptom.component';
+import { DoctorGetDiseaseInformationComponent } from './doctor-get-disease-information/doctor-get-disease-information.component';
+import { PatientGetDiseaseInformationComponent } from './patient-get-disease-information/patient-get-disease-information.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +56,13 @@ import { AdminHandlePatientAccountComponent } from './admin-handle-patient-accou
     AdminGetRequestOfDoctorComponent,
     AdminViewDoctorCertificateComponent,
     PatientSendRequestComponent,
-    AdminHandlePatientAccountComponent
+    AdminHandlePatientAccountComponent,
+    PatientGetDoctorResponseComponent,
+    PatientGetResponseForRequestComponent,
+    PatientRequestFromResponseComponent,
+    DiseaseAndSymptomComponent,
+    DoctorGetDiseaseInformationComponent,
+    PatientGetDiseaseInformationComponent
   ],
   imports: [
     BrowserModule,

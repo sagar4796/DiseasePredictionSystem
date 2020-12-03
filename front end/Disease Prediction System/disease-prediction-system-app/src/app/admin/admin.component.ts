@@ -37,10 +37,6 @@ export class AdminComponent implements OnInit {
     this.route.navigate(['/adminActions']);
   }
 
-  goToHome(){
-    this.route.navigate(['/home']);
-  }
-
   // tslint:disable-next-line:typedef
   loginAdmin(){
     this.service.loginAdmin(this.admin.username, this.admin.password).subscribe(

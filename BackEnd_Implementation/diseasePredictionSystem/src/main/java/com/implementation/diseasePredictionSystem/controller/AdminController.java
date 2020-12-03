@@ -19,6 +19,24 @@ public class AdminController {
     public Response getAdmin(@PathVariable String username, @PathVariable String password){
         return adminService.getAdmin(username,password);
     }
+
+
+    @GetMapping("disease/getDisease")
+    public Response getAdmin(){
+        return adminService.getDisease();
+    }
+
+    @GetMapping("symptom/getSymptom")
+    public Response getSymptom(){
+        return adminService.getSymptom();
+    }
+
+    @GetMapping("symptom/getSymptom/getSortedSymptoms")
+    public Response getSortedSymptoms(){
+        return adminService.getSortedSymptoms();
+    }
+
+
 }
 
 

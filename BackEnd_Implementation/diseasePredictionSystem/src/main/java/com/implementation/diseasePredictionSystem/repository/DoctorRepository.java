@@ -15,4 +15,6 @@ import java.util.List;
     public List<Doctor> findAllByVerifiedAndDeclined(boolean verified, boolean declined);
 
     public List<Doctor> findAllByDeclined(boolean declined);
+
+    public Doctor findByDoctorId(int doctorId);
 }

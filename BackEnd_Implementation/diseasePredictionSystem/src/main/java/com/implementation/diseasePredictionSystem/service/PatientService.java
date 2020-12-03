@@ -96,6 +96,32 @@ public class PatientService {
         return buildResponse(1, "SUCCESFULL", result);
     }
 
+    public Response getRequestByPatientId(int patientId){
+        List<Request> result;
+        try {
+            result = patientImpl.getRequestByPatientId(patientId);
+            if(result == null) {
+                return buildResponse(0, "FAILED", result);
+            }
+        }catch (Exception e){
+            return buildResponse(0, "SERVER_EXCEPTION", e);
+        }
+        return buildResponse(1, "SUCCESFULL", result);
+    }
+
+    public Response getResponseByRequestId(int requestId){
+        List<com.implementation.diseasePredictionSystem.dto.Response> result;
+        try{
+            result = patientImpl.getResponseByRequestId(requestId);
+            if(result == null){
+                return buildResponse(0, "FAILED", result);
+            }
+        }catch (Exception e){
+            return buildResponse(0, "SERVER_EXCEPTION", e);
+        }
+        return buildResponse(1, "SUCCESFULL", result);
+    }
+
 
     private Response buildResponse(int status, String statusMsg, Object obj) {
         Response response = new Response();

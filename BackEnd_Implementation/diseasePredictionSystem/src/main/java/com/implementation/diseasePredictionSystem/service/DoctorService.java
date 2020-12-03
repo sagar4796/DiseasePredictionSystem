@@ -158,6 +158,19 @@ public class DoctorService {
         return buildResponse(1, "SUCCESFULL", result);
     }
 
+    public Response getDoctorByDoctorId(int doctorId){
+        Doctor result;
+        try {
+            result = doctorImpl.getDoctorByDoctorId(doctorId);
+            if(result == null){
+                return buildResponse(0, "FAILED", result);
+            }
+        }catch (Exception e){
+            return buildResponse(0, "SERVER_EXCEPTION", e);
+        }
+        return buildResponse(1, "SUCCESFULL", result);
+    }
+
 
     private Response buildResponse(int status, String statusMsg, Object obj) {
         Response response = new Response();

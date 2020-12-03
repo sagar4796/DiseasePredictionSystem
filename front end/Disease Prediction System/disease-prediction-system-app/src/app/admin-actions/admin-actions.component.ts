@@ -26,4 +26,9 @@ export class AdminActionsComponent implements OnInit {
     this.route.navigate(['/home']);
   }
 
+  goToGetDiseaseAndSymptom(){
+    this.route.navigate(['diseaseAndSymptoms']);
+
+  }
+
 }

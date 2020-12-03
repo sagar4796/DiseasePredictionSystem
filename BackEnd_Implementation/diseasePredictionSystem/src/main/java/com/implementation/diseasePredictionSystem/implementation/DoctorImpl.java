@@ -67,4 +67,8 @@ public class DoctorImpl {
     public Request getRequestByRequestId(int requestId){
         return requestRepository.findByRequestId(requestId);
     }
+
+    public Doctor getDoctorByDoctorId(int doctorId){
+        return doctorRepository.findByDoctorId(doctorId);
+    }
 }

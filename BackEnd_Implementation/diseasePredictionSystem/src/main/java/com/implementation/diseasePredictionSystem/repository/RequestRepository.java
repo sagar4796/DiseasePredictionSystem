@@ -11,4 +11,6 @@ public interface RequestRepository extends JpaRepository<Request, Integer> {
     public List<Request> findAllByDoctorIdAndComplete(int doctorId, boolean complete);
 
     public Request findByRequestId(int requestId);
+
+    public List<Request> findAllByPatientId(int patientId);
 }

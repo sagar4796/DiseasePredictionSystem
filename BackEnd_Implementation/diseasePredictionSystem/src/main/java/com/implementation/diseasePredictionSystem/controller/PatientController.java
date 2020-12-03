@@ -44,4 +44,14 @@ public class PatientController {
     public Response getPatientListByDeclined(@PathVariable boolean declined){
         return patientService.getPatientListByDeclined(declined);
     }
+
+    @GetMapping("request/getRequest/getRequestByPatientId/{patientId}")
+    public Response getRequestByPatientId(@PathVariable int patientId){
+        return patientService.getRequestByPatientId(patientId);
+    }
+
+    @GetMapping("response/getResponse/getResponseByRequestId/{requestId}")
+    public Response getResponseByRequestId(@PathVariable int requestId){
+        return patientService.getResponseByRequestId(requestId);
+    }
 }

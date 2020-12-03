@@ -145,63 +145,44 @@ hr {
     <p>Please fill at least two symptoms to predict the disease.</p>
     <hr>
 
-    <label for="symptom 1"><b>Symptom 1 : &nbsp;</b></label>
-    <input list="symptoms" name="symptoms">
-    <datalist id="symptoms">
-        <option value="Internet Explorer">
-        <option value="Firefox">
-        <option value="Chrome">
-        <option value="Opera">
-        <option value="Safari">
-    </datalist><br><br>
 
-    <label for="symptom 2"><b>Symptom 2 : &nbsp;</b></label>
-    <input list="browsers" name="browser">
-    <datalist id="browsers">
-        <option value="Internet Explorer">
-        <option value="Firefox">
-        <option value="Chrome">
-        <option value="Opera">
-        <option value="Safari">
-    </datalist><br><br>
-
-
-    <label for="symptom 3"><b>Symptom 3 : &nbsp;</b></label>
-    <input list="browsers" name="browser">
-    <datalist id="browsers">
-        <option value="Internet Explorer">
-        <option value="Firefox">
-        <option value="Chrome">
-        <option value="Opera">
-        <option value="Safari">
-    </datalist><br><br>
-
-
-    <label for="symptom 4"><b>Symptom 4 : &nbsp;</b></label>
-    <input list="browsers" name="browser">
-    <datalist id="browsers">
-        <option value="Internet Explorer">
-        <option value="Firefox">
-        <option value="Chrome">
-        <option value="Opera">
-        <option value="Safari">
-    </datalist><br><br>
-
-
-    <label for="symptom 5"><b>Symptom 5 : &nbsp;</b></label>
-    <input list="browsers" name="browser">
-    <datalist id="browsers">
-        <option value="Internet Explorer">
-        <option value="Firefox">
-        <option value="Chrome">
-        <option value="Opera">
-        <option value="Safari">
-    </datalist><br>
-
-
-    <button type="submit" >Submit</button>
-    <button type = "button" style="background-color: orange;"><a href="http://localhost:8888/notebooks/DiseasePredictionSystem.ipynb" target="_blank">page link</a></button>
-    <button type="button" class="cancelbtn" (click)="goToPatientAction()">Cancel</button>
+    <form #DoctorRegisterForm = "ngForm" (ngSubmit) = "predictDisease()" autocomplete="off">
+      <label for="symptom1"><b>Symptom 1 : &nbsp;</b></label>
+      <input list="symptom1" name="symptom1" [(ngModel)] = "symptom1">
+      <datalist id="symptom1">
+        <option *ngFor = "let symptom of symptomList" value = '{{symptom.symptomName}}'></option>
+      </datalist><br><br>
+  
+      <label for="symptom2"><b>Symptom 2 : &nbsp;</b></label>
+      <input list="symptom2" name="symptom2"  [(ngModel)] = "symptom2">
+      <datalist id="symptom2">
+        <option *ngFor = "let symptom of symptomList" value = '{{symptom.symptomName}}'></option>
+      </datalist><br><br>
+  
+  
+      <label for="symptom3"><b>Symptom 3 : &nbsp;</b></label>
+      <input list="symptom3" name="symptom3" [(ngModel)] = "symptom3">
+      <datalist id="symptom3">
+        <option *ngFor = "let symptom of symptomList" value = '{{symptom.symptomName}}'></option>
+      </datalist><br><br>
+  
+  
+      <label for="symptom4"><b>Symptom 4 : &nbsp;</b></label>
+      <input list="symptom4" name="symptom4" [(ngModel)] = "symptom4">
+      <datalist id="symptom4">
+        <option *ngFor = "let symptom of symptomList" value = '{{symptom.symptomName}}'></option>
+      </datalist><br><br>
+  
+  
+      <label for="symptom5"><b>Symptom 5 : &nbsp;</b></label>
+      <input list="symptom5" name="symptom5" [(ngModel)] = "symptom5">
+      <datalist id="symptom5">
+        <option *ngFor = "let symptom of symptomList" value = '{{symptom.symptomName}}'></option>
+      </datalist><br>
+      <button type="submit" >Submit</button>
+      <button type = "button" style="background-color: orange;"><a href="http://localhost:8888/notebooks/DiseasePredictionSystem.ipynb" target="_blank">page link</a></button>
+      <button type="button" class="cancelbtn" (click)="goToPatientAction()">Cancel</button>
+    </form>
     <pre>
     </pre>
   </div>

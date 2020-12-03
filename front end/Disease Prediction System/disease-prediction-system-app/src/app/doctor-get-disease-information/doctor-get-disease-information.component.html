@@ -1,0 +1,107 @@
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box}
+    
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+    
+    input[type=text]:focus, input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    
+    
+    /* Set a style for all buttons */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+    
+    button:hover {
+      opacity:1;
+    }
+
+    button.home{
+      background-color: darkgray;
+      width: 10%;
+      /* line-height: 12px; */
+      margin-top: 1px;
+      margin-right: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #f44336;
+    }
+    
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+    
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    hr {
+      border: 1px solid black;
+      margin-bottom: 25px;
+    }
+    
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+      .cancelbtn, .signupbtn {
+         width: 100%;
+      }
+    }
+</style>
+
+
+<div style="background-color: whitesmoke;">
+    <button class="home" (click) = goToWelcome()>Home</button>
+    <div class="container">
+        <h2> Disease</h2>
+        <p> list of Disease and Description of each disease </p>
+        <hr>
+        <small style="color: red;">{{msgForDisease}}</small>
+        <form #getDisease = "ngForm">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Disease Name</th>
+                        <th scope="col">Desctiption</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let disease of diseaseList">
+                        <td>{{disease.diseaseId}}</td>
+                        <td>{{disease.diseaseName}}</td>
+                        <td>{{disease.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <button type="button" class="cancelbtn" (click) = "goToDoctorActions()">Cancel</button>
+    </div>
+</div>

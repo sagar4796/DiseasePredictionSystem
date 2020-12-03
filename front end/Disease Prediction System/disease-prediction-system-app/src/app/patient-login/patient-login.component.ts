@@ -36,7 +36,6 @@ export class PAtientLoginComponent implements OnInit {
 
     // tslint:disable-next-line:typedef
     goToPatientActions(patientId: number){
-      console.log('patientId --> ' + patientId);
       this.route.navigate(['/patientActions', patientId]);
     }
 

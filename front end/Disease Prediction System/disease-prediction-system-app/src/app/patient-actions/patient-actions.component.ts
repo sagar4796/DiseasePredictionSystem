@@ -26,7 +26,7 @@ export class PatientActionsComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   goToPredictDisease(){
-    this.router.navigate(['/predictDisease']);
+    this.router.navigate(['/predictDisease', this.patientId]);
   }
 
   // tslint:disable-next-line:typedef
@@ -36,6 +36,15 @@ export class PatientActionsComponent implements OnInit {
 
   goToWelcome(){
     this.router.navigate(['/home']);
+  }
+
+  goToPatientGetDoctorResponse(){
+    this.router.navigate(['/responseOfDoctor', this.patientId]);
+  }
+
+  goToGetDisease(){
+    this.router.navigate(['diseaseInfomationForPatient', this.patientId]);
+
   }
 
 }

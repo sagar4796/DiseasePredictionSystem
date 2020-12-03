@@ -19,6 +19,12 @@ import { PatientSendRequestComponent } from './patient-send-request/patient-send
 import { DoctorRequestsOfPatientsComponent } from './doctor-requests-of-patients/doctor-requests-of-patients.component';
 import { DoctorResponseToPatientComponent } from './doctor-response-to-patient/doctor-response-to-patient.component';
 import { AdminHandlePatientAccountComponent } from './admin-handle-patient-account/admin-handle-patient-account.component';
+import { PatientGetDoctorResponseComponent } from './patient-get-doctor-response/patient-get-doctor-response.component';
+import { PatientGetResponseForRequestComponent } from './patient-get-response-for-request/patient-get-response-for-request.component';
+import { PatientRequestFromResponseComponent } from './patient-request-from-response/patient-request-from-response.component';
+import { DiseaseAndSymptomComponent } from './disease-and-symptom/disease-and-symptom.component';
+import { DoctorGetDiseaseInformationComponent } from './doctor-get-disease-information/doctor-get-disease-information.component';
+import { PatientGetDiseaseInformationComponent } from './patient-get-disease-information/patient-get-disease-information.component';
 
 const routes: Routes = [
   {path : '', component: WelcomeComponent},
@@ -32,14 +38,20 @@ const routes: Routes = [
   {path: 'doctorActions/:doctorId', component: DoctorActionsComponent},
   {path: 'patientActions/:patientId', component: PatientActionsComponent},
   {path: 'doctorWait', component: DoctorWaitComponent},
-  {path: 'predictDisease', component: PatientPredictDiseaseComponent},
+  {path: 'predictDisease/:patientId', component: PatientPredictDiseaseComponent},
   {path: 'patientRequestToDoctor/:patientId', component: PatientRequestToDoctorComponent},
   {path: 'adminGetRequestOfDoctor', component: AdminGetRequestOfDoctorComponent},
   {path: 'ViewDoctorCertificate/:doctorId', component: AdminViewDoctorCertificateComponent},
   {path: 'patientSendRequest/:patientId/:doctorId', component: PatientSendRequestComponent},
   {path: 'doctorGetRequestOfPatient/:doctorId', component: DoctorRequestsOfPatientsComponent},
   {path: 'doctorResponseToPatient/:patientId/:doctorId/:requestId', component: DoctorResponseToPatientComponent},
-  {path: 'patientAccounts', component: AdminHandlePatientAccountComponent}
+  {path: 'patientAccounts', component: AdminHandlePatientAccountComponent},
+  {path: 'responseOfDoctor/:patientId', component: PatientGetDoctorResponseComponent},
+  {path: 'responseForRequest/:requestId/:doctorId/:patientId', component: PatientGetResponseForRequestComponent},
+  {path: 'requestDoctorFromResponse/:patientId/:doctorId', component: PatientRequestFromResponseComponent},
+  {path: 'diseaseAndSymptoms', component: DiseaseAndSymptomComponent},
+  {path: 'diseaseInfomationForDoctor/:doctorId', component: DoctorGetDiseaseInformationComponent},
+  {path: 'diseaseInfomationForPatient/:patientId', component: PatientGetDiseaseInformationComponent}
 ];
 
 @NgModule({

@@ -66,4 +66,9 @@ public class DoctorController {
         return doctorService.getRequestByRequestId(requestId);
     }
 
+    @GetMapping("doctor/getDoctor/getDoctorByDoctorId/{doctorId}")
+    public Response getDoctorByDoctorId(@PathVariable int doctorId){
+        return doctorService.getDoctorByDoctorId(doctorId);
+    }
+
 }

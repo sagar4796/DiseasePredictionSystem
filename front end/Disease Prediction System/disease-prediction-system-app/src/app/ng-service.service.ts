@@ -23,6 +23,18 @@ export class NgServiceService {
     return this.http.get<any>("http://localhost:8080/admin/getAdmin/" + username + "/" + password);
   }
 
+  public getDisease(): Observable<any>{
+    return this.http.get<any>("http://localhost:8080/disease/getDisease");
+  }
+
+  public getSymptom(): Observable<any>{
+    return this.http.get<any>("http://localhost:8080/symptom/getSymptom");
+  }
+
+  public getSortedSymptoms(): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/symptom/getSymptom/getSortedSymptoms')
+  }
+
 
 
 
@@ -118,5 +130,17 @@ export class NgServiceService {
 
   public getPatientByDeclined(declined: boolean): Observable<any>{
     return this.http.get<any>('http://localhost:8080/patient/getPatient/getPatientByDeclined/' + declined);
+  }
+
+  public getRequestByPatientId(patientId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/request/getRequest/getRequestByPatientId/' + patientId);
+  }
+
+  public getResponseByRequestId(requestId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/response/getResponse/getResponseByRequestId/' + requestId);
+  }
+
+  public getDoctorByDoctorId(doctorId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByDoctorId/' + doctorId);
   }
 }
