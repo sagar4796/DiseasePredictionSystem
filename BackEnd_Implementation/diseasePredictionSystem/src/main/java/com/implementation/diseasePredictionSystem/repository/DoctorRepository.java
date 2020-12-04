@@ -17,4 +17,6 @@ import java.util.List;
     public List<Doctor> findAllByDeclined(boolean declined);
 
     public Doctor findByDoctorId(int doctorId);
+
+    public Doctor findByUsername(String username);
 }

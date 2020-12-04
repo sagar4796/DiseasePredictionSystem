@@ -37,17 +37,34 @@ export class PatientSignupComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   patientRegister(){
-    this.patient.declined = false;
-    this.service.patientRegister(this.patient).subscribe(
+    this.service.getPatientByUsername(this.patient.username).subscribe(
       data => {
         // tslint:disable-next-line:quotemark
         console.log("response receiver");
         console.log(data);
         console.log(data.status);
         if (data.status === 1){
-          this.goToPatientLogin();
+          this.msg = "Username is already exist, please choose other";
         }else{
-          this.msg = 'invalid information, please enter valid information';
+          this.patient.declined = false;
+          this.service.patientRegister(this.patient).subscribe(
+            data => {
+              // tslint:disable-next-line:quotemark
+              console.log("response receiver");
+              console.log(data);
+              console.log(data.status);
+              if (data.status === 1){
+                this.goToPatientLogin();
+              }else{
+                this.msg = 'invalid information, please enter valid information';
+              }
+            },
+            error => {
+              // tslint:disable-next-line:quotemark
+              console.log("exception occured");
+              this.msg = 'invalid information, please enter valid information';
+            }
+          );
         }
       },
       error => {
@@ -55,7 +72,6 @@ export class PatientSignupComponent implements OnInit {
         console.log("exception occured");
         this.msg = 'invalid information, please enter valid information';
       }
-    );
+    );  
   }
-
 }

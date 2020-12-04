@@ -104,6 +104,14 @@ export class NgServiceService {
     return this.http.get<any>('http://localhost:8080/request/getRequest/getRequestbyRequestId/' + requestId);
   }
 
+  public getDoctorByDoctorId(doctorId: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByDoctorId/' + doctorId);
+  }
+
+  public getDoctorByUsername(username: string): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByUsername/' + username);
+  }
+
 
 
   // Patient
@@ -140,7 +148,13 @@ export class NgServiceService {
     return this.http.get<any>('http://localhost:8080/response/getResponse/getResponseByRequestId/' + requestId);
   }
 
-  public getDoctorByDoctorId(doctorId: number): Observable<any>{
-    return this.http.get<any>('http://localhost:8080/doctor/getDoctor/getDoctorByDoctorId/' + doctorId);
+  public getPatientByUsername(username: string): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/patient/getPatient/getPatientByUsername/' + username);
   }
+
+//predict Algorithm
+public getDiseaseFromSymptoms(symptom1: string, symptom2: string, symptom3: string, symptom4: string, symptom5: string){
+  return this.http.get<any>('http://127.0.0.1:5000/predicrDisease/' + symptom1 + '/' + symptom2 + '/' + symptom3 + '/' + symptom4 + '/' + symptom5);
+}
+
 }

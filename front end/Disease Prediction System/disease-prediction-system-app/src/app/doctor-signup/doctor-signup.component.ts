@@ -62,51 +62,68 @@ public onFileChanged(event){
 
   // tslint:disable-next-line:typedef
   doctorRegister(){
-    let i = 0;
-    for (i = 0; i < this.cityList.length; i++){
-        if (this.city.cityName === this.cityList[i].cityName){
-            this.city.cityId = this.cityList[i].cityId;
-        }
-    }
-    this.doctor.cityId = this.city.cityId;
-    this.doctor.departmentId = 1;
-    this.doctor.verified = false;
-    this.doctor.declined = false;
-    const selectedImageData = new FormData();
-    selectedImageData.append('imagefile', this.selectedFile);
-    this.service.doctorRegister(this.doctor).subscribe(
+    this.service.getDoctorByUsername(this.doctor.username).subscribe(
       data => {
         // tslint:disable-next-line:quotemark
         console.log("response receiver");
         console.log(data);
         console.log(data.status);
         if (data.status === 1){
-          this.doctorId = data.response.doctorId;
-          console.log('doctorId -->' + this.doctorId);
-          this.service.saveDoctorCertificate(this.doctorId, selectedImageData).subscribe(
-            // tslint:disable-next-line:no-shadowed-variable
+          this.msg = "Username is already exist, please choose other";
+        }else{
+          let i = 0;
+          for (i = 0; i < this.cityList.length; i++){
+              if (this.city.cityName === this.cityList[i].cityName){
+                  this.city.cityId = this.cityList[i].cityId;
+              }
+          }
+          this.doctor.cityId = this.city.cityId;
+          this.doctor.departmentId = 1;
+          this.doctor.verified = false;
+          this.doctor.declined = false;
+          const selectedImageData = new FormData();
+          selectedImageData.append('imagefile', this.selectedFile);
+          this.service.doctorRegister(this.doctor).subscribe(
             data => {
               // tslint:disable-next-line:quotemark
               console.log("response receiver");
               console.log(data);
               console.log(data.status);
               if (data.status === 1){
-                this.goToDoctorWait();
+                this.doctorId = data.response.doctorId;
+                console.log('doctorId -->' + this.doctorId);
+                this.service.saveDoctorCertificate(this.doctorId, selectedImageData).subscribe(
+                  // tslint:disable-next-line:no-shadowed-variable
+                  data => {
+                    // tslint:disable-next-line:quotemark
+                    console.log("response receiver");
+                    console.log(data);
+                    console.log(data.status);
+                    if (data.status === 1){
+                      this.goToDoctorWait();
+                    }
+                  },
+                  error => {
+                    console.log('exception occured');
+                    this.msg = 'invalid information, please enter valid information';
+                  }
+                );
+              }else{
+                this.msg = 'invalid information, please enter valid information';
               }
             },
             error => {
-              console.log('exception occured');
+              // tslint:disable-next-line:quotemark
+              console.log("exception occured");
               this.msg = 'invalid information, please enter valid information';
             }
           );
-        }else{
-          this.msg = 'invalid information, please enter valid information';
         }
       },
       error => {
         // tslint:disable-next-line:quotemark
         console.log("exception occured");
-        this.msg = 'invalid information, please enter valid information';
+        this.msg = 'There is some problem please refresh this page';
       }
     );
   }

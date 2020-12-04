@@ -15,6 +15,14 @@ export class PatientPredictDiseaseComponent implements OnInit {
   patientId: number;
   msgForSymptom = '';
   symptomList: Symptom[];
+  diseaseName: string;
+
+  // symptom1 = 'Select';
+  // symptom2 = 'Select';
+  // symptom3 = 'Select';
+  // symptom4 = 'Select';
+  // symptom5 = 'Select';
+
 
   symptom1: string;
   symptom2: string;
@@ -48,6 +56,20 @@ export class PatientPredictDiseaseComponent implements OnInit {
     console.log("symptom3 ->"  + this.symptom3);
     console.log("symptom4 ->"  + this.symptom4);
     console.log("symptom5 ->"  + this.symptom5);
+    this.service.getDiseaseFromSymptoms(this.symptom1, this.symptom2, this.symptom3, this.symptom4, this.symptom5).subscribe(
+      data => {
+        // tslint:disable-next-line:quotemark
+        console.log("response receiver");
+        console.log(data);
+        console.log(data.prediction);
+        this.diseaseName = data.prediction;
+      },
+      error => {
+        // tslint:disable-next-line:quotemark
+        console.log("exception occured");
+        this.msgForSymptom = 'There is some problem please refresh this page';
+      }
+    );
   }
   
 

@@ -54,4 +54,8 @@ public class PatientImpl {
     public List<Response> getResponseByRequestId(int requestId){
         return responseRepository.findAllByRequestId(requestId);
     }
+
+    public Patient getPatientByUsername(String username){
+        return patientRepository.findByUsername(username);
+    }
 }

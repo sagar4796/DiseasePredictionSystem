@@ -71,4 +71,8 @@ public class DoctorImpl {
     public Doctor getDoctorByDoctorId(int doctorId){
         return doctorRepository.findByDoctorId(doctorId);
     }
+
+    public Doctor getDoctorByUsername(String username){
+        return doctorRepository.findByUsername(username);
+    }
 }

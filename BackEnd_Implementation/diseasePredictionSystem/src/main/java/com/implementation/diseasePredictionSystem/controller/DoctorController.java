@@ -71,4 +71,9 @@ public class DoctorController {
         return doctorService.getDoctorByDoctorId(doctorId);
     }
 
+    @GetMapping("doctor/getDoctor/getDoctorByUsername/{username}")
+    public Response getDoctorByUsername(@PathVariable String username){
+        return doctorService.getDoctorByUsername(username);
+    }
+
 }

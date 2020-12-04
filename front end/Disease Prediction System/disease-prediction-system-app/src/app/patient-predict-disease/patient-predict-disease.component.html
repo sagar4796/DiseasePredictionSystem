@@ -179,8 +179,13 @@ hr {
       <datalist id="symptom5">
         <option *ngFor = "let symptom of symptomList" value = '{{symptom.symptomName}}'></option>
       </datalist><br>
+      <div *ngIf = diseaseName>
+        <br>
+        <br>
+        <label for = "nameOfDisease" style="font-size: x-large;"><b>Disease : &nbsp;</b></label>
+        <label for = "nameOfDisease" style="font-size: x-large;"><b>{{diseaseName}}</b></label>
+      </div>
       <button type="submit" >Submit</button>
-      <button type = "button" style="background-color: orange;"><a href="http://localhost:8888/notebooks/DiseasePredictionSystem.ipynb" target="_blank">page link</a></button>
       <button type="button" class="cancelbtn" (click)="goToPatientAction()">Cancel</button>
     </form>
     <pre>
